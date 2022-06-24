@@ -1,8 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { Divider, Radio, Table } from "antd";
+import { Table } from "antd";
 import { useEffect, useState } from "react";
-
-// rowSelection object indicates the need for row selection
 
 const List = () => {
   const [passanger, setpassanger] = useState([]);
