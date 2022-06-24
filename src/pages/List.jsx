@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { Table } from "antd";
 import { useEffect, useState } from "react";
 
@@ -6,18 +5,17 @@ const List = () => {
   const [passanger, setpassanger] = useState([]);
   const [pagination, setpagination] = useState(1);
 
-  const fetchPassanger = async () => {
-    const response = await fetch(
-      `https://api.instantwebtools.net/v1/passenger?page=${pagination}&size=10`
-    );
-    const responseData = await response.json();
-    setpassanger(responseData);
-    console.log("responseData: ", responseData);
-  };
-
   useEffect(() => {
+    const fetchPassanger = async () => {
+      const response = await fetch(
+        `https://api.instantwebtools.net/v1/passenger?page=${pagination}&size=10`
+      );
+      const responseData = await response.json();
+      setpassanger(responseData);
+      console.log("responseData: ", responseData);
+    };
     fetchPassanger();
-  }, [fetchPassanger, pagination]);
+  }, [pagination]);
   const columns = [
     {
       title: "ID",
